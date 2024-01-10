@@ -196,7 +196,6 @@ jobs:
           fi
 
           ${CONDA_RUN_SMOKE} conda install \
-            --quiet \
             --yes \
             -c "${CONDA_LOCAL_CHANNEL}" \
             -c pytorch-${CHANNEL} \
