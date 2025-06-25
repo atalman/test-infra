@@ -542,25 +542,23 @@ def analyze_stacks(repo: GitRepo) -> None:
             f"{author} has {len(slen)} stacks max depth is {max(slen)} avg depth is {sum(slen)/len(slen):.2f} mean is {slen[len(slen)//2]}"
         )
 
-
 def extract_commit_hash_from_revert(text):
     """
     Extract commit hash from a revert commit message.
-
+    
     Args:
         text (str): The revert commit message
-
+        
     Returns:
         str or None: The extracted commit hash, or None if not found
     """
     # Pattern to match "This reverts commit <hash>."
     pattern = r"This reverts commit ([0-9a-f]+)\."
-
+    
     match = re.search(pattern, text)
     if match:
         return match.group(1)
     return None
-
 
 def analyze_reverts_missing_from_branch(repo: GitRepo, branch: str) -> None:
     """
@@ -599,9 +597,7 @@ def analyze_reverts_missing_from_branch(repo: GitRepo, branch: str) -> None:
         print(f"No reverts found in main branch that are missing from {branch} branch.")
         return
 
-    print(
-        f"Found {len(reverts_missing_from_branch)} revert(s) in main branch not present in {branch} branch:"
-    )
+    print(f"Found {len(reverts_missing_from_branch)} revert(s) in main branch not present in {branch} branch:")
     print("=" * 80)
 
     for commit in reverts_missing_from_branch:
@@ -621,9 +617,8 @@ def analyze_reverts_missing_from_branch(repo: GitRepo, branch: str) -> None:
         if reverted_commit_hash:
             if reverted_commit_hash in branch_only_reverts:
                 cherry_picked_to_branch = True
-                print(
-                    f"✅  DETECTED: The reverted commit {reverted_commit_hash} was cherry-picked to {branch}"
-                )
+                print(f"✅  DETECTED: The reverted commit {reverted_commit_hash} was cherry-picked to {branch}")
+
 
         print(f"Commit Hash: {commit.commit_hash}")
         print(f"Author: {commit.author}")
@@ -633,13 +628,9 @@ def analyze_reverts_missing_from_branch(repo: GitRepo, branch: str) -> None:
             print(f"PR URL: {commit.pr_url}")
 
         if not cherry_picked_to_branch:
-            print(
-                f"⚠️ STATUS: The reverted commit does not appear to be in {branch}, so this revert may not be needed."
-            )
+            print(f"⚠️ STATUS: The reverted commit does not appear to be in {branch}, so this revert may not be needed.")
 
-        print(
-            f"Body Preview: {commit.body[:200]}{'...' if len(commit.body) > 200 else ''}"
-        )
+        print(f"Body Preview: {commit.body[:200]}{'...' if len(commit.body) > 200 else ''}")
         print("-" * 80)
 
 
@@ -663,11 +654,8 @@ def parse_arguments():
     parser.add_argument("--missing-in-branch", action="store_true")
     parser.add_argument("--missing-in-release", action="store_true")
     parser.add_argument("--analyze-stacks", action="store_true")
-    parser.add_argument(
-        "--analyze-missing-reverts-from-branch",
-        action="store_true",
-        help="Analyze reverts applied to main branch but not applied to specified branch",
-    )
+    parser.add_argument("--analyze-missing-reverts-from-branch", action="store_true",
+                        help="Analyze reverts applied to main branch but not applied to specified branch")
     parser.add_argument("--date", type=lambda d: datetime.strptime(d, "%Y-%m-%d"))
     parser.add_argument("--issue-num", type=int)
     return parser.parse_args()
@@ -694,9 +682,7 @@ def main():
 
     if args.analyze_missing_reverts_from_branch:
         if not args.branch:
-            print(
-                "Error: --branch argument is required for --analyze-missing-reverts-from-branch"
-            )
+            print("Error: --branch argument is required for --analyze-missing-reverts-from-branch")
             return
         analyze_reverts_missing_from_branch(repo, args.branch)
         return
