@@ -560,6 +560,25 @@ def extract_commit_hash_from_revert(text):
         return match.group(1)
     return None
 
+def extract_commit_hash_from_revert(text):
+    """
+    Extract commit hash from a revert commit message.
+
+    Args:
+        text (str): The revert commit message
+
+    Returns:
+        str or None: The extracted commit hash, or None if not found
+    """
+    # Pattern to match "This reverts commit <hash>."
+    pattern = r"This reverts commit ([0-9a-f]+)\."
+
+    match = re.search(pattern, text)
+    if match:
+        return match.group(1)
+    return None
+
+
 def analyze_reverts_missing_from_branch(repo: GitRepo, branch: str) -> None:
     """
     Analyze reverts applied to main branch but not applied to specified branch.
