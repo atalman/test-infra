@@ -59,6 +59,23 @@ STABLE_CUDA_VERSIONS = {
     "release": "13.0",
 }
 
+# Stable CUDA dependencies to inject as metadata into CPU builds for Windows
+# and macOS. These are included as Requires-Dist entries with
+# platform_system == 'Linux' markers so they only get installed on Linux.
+# Keyed by CUDA version matching STABLE_CUDA_VERSIONS values.
+PYTORCH_EXTRA_INSTALL_REQUIREMENTS = {
+    "13.0": (
+        "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,"
+        "nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | "
+        "cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | "
+        "nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | "
+        "nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | "
+        "nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | "
+        "nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | "
+        "triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
+    ),
+}
+
 CUDA_AARCH64_ARCHES = ["12.6-aarch64", "13.0-aarch64", "13.2-aarch64"]
 
 PACKAGE_TYPES = ["wheel", "libtorch"]
@@ -481,6 +498,19 @@ def generate_wheels_matrix(
                     python_version, python_version
                 )
 
+            # Inject stable CUDA dependencies as metadata for nightly/test
+            # Windows CPU and macOS CPU builds
+            pytorch_extra_install_requirements = ""
+            if (
+                gpu_arch_type == CPU
+                and os in (WINDOWS, MACOS_ARM64)
+                and channel in (NIGHTLY, TEST)
+            ):
+                stable_cuda = STABLE_CUDA_VERSIONS.get(channel, "")
+                pytorch_extra_install_requirements = (
+                    PYTORCH_EXTRA_INSTALL_REQUIREMENTS.get(stable_cuda, "")
+                )
+
             entry = {
                 "python_version": effective_python_version,
                 "gpu_arch_type": gpu_arch_type,
@@ -505,6 +535,7 @@ def generate_wheels_matrix(
                 "channel": channel,
                 "upload_to_base_bucket": upload_to_base_bucket,
                 "stable_version": CURRENT_VERSION,
+                "pytorch_extra_install_requirements": pytorch_extra_install_requirements,
             }
             ret.append(entry)
 

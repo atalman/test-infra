@@ -12,7 +12,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.10",
@@ -26,7 +27,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     },
     {
       "python_version": "3.11",
@@ -40,7 +42,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.11",
@@ -54,7 +57,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     },
     {
       "python_version": "3.12",
@@ -68,7 +72,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.12",
@@ -82,7 +87,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     },
     {
       "python_version": "3.13",
@@ -96,7 +102,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.13",
@@ -110,7 +117,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     },
     {
       "python_version": "3.13t",
@@ -124,7 +132,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.13t",
@@ -138,7 +147,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     },
     {
       "python_version": "3.14",
@@ -152,7 +162,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.14",
@@ -166,7 +177,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     },
     {
       "python_version": "3.14t",
@@ -180,7 +192,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": "cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == 'Linux' | cuda-bindings<14,>=13.0.3; platform_system == 'Linux' | nvidia-cudnn-cu13==9.20.0.48; platform_system == 'Linux' | nvidia-cusparselt-cu13==0.8.1; platform_system == 'Linux' | nvidia-nccl-cu13==2.29.7; platform_system == 'Linux' | nvidia-nvshmem-cu13==3.4.5; platform_system == 'Linux' | triton==3.7.0+git9c288bc5; platform_system == 'Linux'"
     },
     {
       "python_version": "3.14t",
@@ -194,7 +207,8 @@
       "installation": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu",
       "channel": "nightly",
       "upload_to_base_bucket": "yes",
-      "stable_version": "2.11.0"
+      "stable_version": "2.11.0",
+      "pytorch_extra_install_requirements": ""
     }
   ]
 }
