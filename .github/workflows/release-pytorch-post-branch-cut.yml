@@ -93,7 +93,7 @@ jobs:
             git push -f origin "${BRANCH_NAME}"
             echo "Updated existing PR #${EXISTING_PR}"
           else
-            git push -u origin "${BRANCH_NAME}"
+            git push -f origin "${BRANCH_NAME}"
 
             gh pr create \
               --title "[RELEASE-ONLY CHANGES] Branch Cut for Release ${RELEASE_VERSION}" \
@@ -184,7 +184,7 @@ jobs:
             git push -f origin "${BRANCH_NAME}"
             echo "Updated existing PR #${EXISTING_PR}"
           else
-            git push -u origin "${BRANCH_NAME}"
+            git push -f origin "${BRANCH_NAME}"
 
             gh pr create \
               --title "Bump version to ${NEXT_VERSION}" \
@@ -339,7 +339,7 @@ jobs:
             git push -f origin "${BRANCH_NAME}"
             echo "Updated existing PR #${EXISTING_PR}"
           else
-            git push -u origin "${BRANCH_NAME}"
+            git push -f origin "${BRANCH_NAME}"
 
             gh pr create \
               --title "Update binary build matrix for release ${RELEASE_VERSION}" \
