@@ -61,6 +61,11 @@ RUN dnf install -y \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
+# Default to gcc-toolset-13 (matching aarch64 and legacy manylinux builders).
+# GCC 14 is still available under /opt/rh/gcc-toolset-14/ when needed.
+ENV PATH=/opt/rh/gcc-toolset-13/root/usr/bin:$PATH
+ENV LD_LIBRARY_PATH=/opt/rh/gcc-toolset-13/root/usr/lib64:/opt/rh/gcc-toolset-13/root/usr/lib:$LD_LIBRARY_PATH
+
 # Install pre-built clang 15 and 18 (clang 20 is already the system default)
 RUN ARCH=$(uname -m) && PLATFORM="linux-${ARCH}" && \
     for CLANG_VERSION in 15 18; do \
