@@ -120,7 +120,11 @@ jobs:
   generate-release-matrix:
     uses: ./.github/workflows/generate_release_matrix.yml
     with:
-      version: ${{ inputs.version }}
+      # generate_release_matrix.py only accepts versions present in its
+      # RELEASE_DICT (legacy, up to 2.5.1); pass empty so it returns {}.
+      # The torch pip pin is driven by inputs.version via RELEASE_VERSION
+      # in the validate-*-binaries jobs below.
+      version: ""
 
   win:
     if:  inputs.os == 'windows' || inputs.os == 'all'
